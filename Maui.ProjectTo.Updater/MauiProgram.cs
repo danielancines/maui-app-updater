@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Maui.ProjectTo.Updater.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace Maui.ProjectTo.Updater
 {
@@ -9,17 +10,22 @@ namespace Maui.ProjectTo.Updater
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .ConfigureUpdater()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+
+
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
 
-            return builder.Build();
+            var app = builder.Build();
+            UpdaterConfiguration.InitializeUpdaterConfiguration(app.Services);
+            return app;
         }
     }
 }
