@@ -1,0 +1,7 @@
+{
+  "Settings": {
+    "Type": "Network",
+    "Uri": "http://api.trader.com/v2",
+    "ManifestFile": "UpdaterManifest.json"
+  }
+}

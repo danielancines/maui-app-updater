@@ -18,13 +18,13 @@ public partial class MainPage : ContentPage
 			return;
 
 		Process.Start(Path.Combine(appPath, @"Updater\Maui.ProjectTo.Updater.exe"));
-		
+
 		count++;
 
 		if (count == 1)
 			CounterBtn.Text = $"Clicked {count} time";
 		else
-			CounterBtn.Text = $"Clicked {count} times";
+			CounterBtn.Text = $"Clicked {count} times";	
 
 		SemanticScreenReader.Announce(CounterBtn.Text);
 	}
