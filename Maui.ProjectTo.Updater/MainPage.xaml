@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Maui.ProjectTo.Updater.MainPage" Title="Updater v1.0.1">
 
-    <ScrollView>
-        <Button Text="Update" Command="{Binding UpdateCommand}"/>
-    </ScrollView>
-
+    <Grid RowDefinitions="Auto, Auto, Auto">
+        <ProgressBar Progress="{Binding DownloadProgress}"/>
+        <Label Text="{Binding DownloadingFileName}" Grid.Row="1"/>
+        <Button Text="Update" Command="{Binding UpdateCommand}" Grid.Row="2"/>
+    </Grid>
 </ContentPage>
